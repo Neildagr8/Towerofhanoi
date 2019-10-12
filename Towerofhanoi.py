@@ -1,16 +1,12 @@
-def move(f, t):
-    print("Move disc from {} to {}!".format(f,t))
+def move(from_, to):
+    print("Move disc from {} to {}!".format(from_,to))# This code creates a function to move a disc from one stand to another
 
-def moveVia(f, t, v):
-    move(f, v)
-    move(v,t)
+def moveVia(from_, to, via):
+    move(from_, via)
+    move(via,to)#This code creates a function to move a disc from one stand to another via a other stand
 
-def hanoi(n, h, t, f):
-    if n == 0:
+def hanoi(number_of_discs, via, to, from_):
+    if number_of_discs == 0:# checks we dont start counting negative discs!
         pass
     else:
-        hanoi((n-1), f, t, h)
-        move(f, t)
-        hanoi((n-1), h, f, t)
-
-hanoi(4, "B", "C", "A")
+        hanoi((number_of_discs-1), from_, to, via)#Uses recursion to detect plausible routes and move on
